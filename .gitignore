@@ -1,0 +1,6 @@
+# Ignore all output stuff.
+/*.gz
+/*.csv
+
+# Ignore Vim droppings
+*.sw[onp]

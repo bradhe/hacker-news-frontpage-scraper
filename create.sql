@@ -1,0 +1,19 @@
+CREATE DATABASE IF NOT EXISTS hacker_news;
+USE hacker_news;
+
+CREATE TABLE IF NOT EXISTS links (
+  period DATETIME NOT NULL,
+  position INT(11) NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  href VARCHAR(255) NOT NULL,
+  PRIMARY KEY (period, position)
+);
+
+TRUNCATE links;
+
+LOAD DATA LOCAL INFILE 'links.csv'
+INTO TABLE links
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES
+(period, position, title, href);
